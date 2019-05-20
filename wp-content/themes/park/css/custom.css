@@ -313,6 +313,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
 }
 
 .slider .owl-item .bg__slider {
@@ -701,6 +702,7 @@ h2,
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .testimonial__name {
@@ -719,6 +721,21 @@ h2,
     line-height: 20px;
     text-align: left;
     color: #3b3b3b;
+}
+
+.testimonial__date strong {
+    font-family: "PT Sans", sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    color: #3b3b3b;
+    margin-right: 10px;
+}
+
+.testimonial__date strong i {
+    font-style: normal;
+    color: #be9527;
 }
 
 .testimonial__body {
@@ -892,8 +909,6 @@ h2,
 }
 
 .section__dopinf .grid__why {
-    background: url(../img/bg-room.jpg) no-repeat center center;
-    background-size: cover;
     margin-bottom: 30px;
 }
 
@@ -970,6 +985,10 @@ h2,
 
 .pb0 {
     padding-bottom: 0;
+}
+
+.pb10 {
+    padding-bottom: 10px;
 }
 
 .grid__contacts {
@@ -1197,7 +1216,9 @@ h2,
 .form__block input[type='email'],
 .form__block input[type='date'],
 .form__block input[type='tel'],
-.form__block input[type='mask'] {
+.form__block input[type='mask'],
+.form__block textarea,
+.form__block select {
     height: 39px;
     border-radius: 10px;
     background: rgba(142, 142, 142, .1);
@@ -1235,7 +1256,9 @@ h2,
     outline: none;
 }
 
-input:focus {
+input:focus,
+textarea:focus,
+select:focus {
     box-shadow: none !important;
 }
 
@@ -1312,6 +1335,26 @@ input:focus {
     border-color: #ba9127;
 }
 
+.form__contacts {
+    max-width: 100%;
+    background: rgba(255, 255, 255, .9);
+}
+
+.form__block textarea {
+    height: 78px;
+    resize: none;
+}
+
+.form__contacts .fields__group span {
+    width: calc((100% / 3) - 10px);
+}
+
+.form__testimonials {
+    max-width: calc(100% - 68px);
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
 .close__form {
     width: 27px;
     height: 27px;
@@ -1374,6 +1417,26 @@ input:focus {
 
 .booking__block.open {
     height: 165px;
+}
+
+.section__blockquote {
+    padding-top: 30px;
+}
+
+.grid__services-list .gallery__item {
+    height: 205px;
+}
+
+.grid__services-list .gallery__item a {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.services__img {
+    height: calc(100% - 60px);
+    width: 100%;
 }
 
 /**/

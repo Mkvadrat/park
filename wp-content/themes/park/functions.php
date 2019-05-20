@@ -43,6 +43,7 @@ function mk_scripts(){
 		wp_enqueue_script( 'bootstrap-min', get_template_directory_uri() . '/js/bootstrap.min.js', '', '', true );
 		wp_enqueue_script( 'carousel-min', get_template_directory_uri() . '/js/owl.carousel.min.js', '', '', true );
 		wp_enqueue_script( 'custom-min', get_template_directory_uri() . '/js/custom.js', '', '', true );
+		wp_enqueue_script( 'parallax-min', get_template_directory_uri() . '/js/parallax.min.js', '', '', true );
 		wp_enqueue_script( 'fancybox-min', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js', '', '', true );
 	}
 }
@@ -327,11 +328,8 @@ function create_taxonomies_app(){
         'rewrite' => array('slug' => 'rooms-list' )
     ));
 }
-add_action( 'init', 'create_taxonomies_app', 0 );
-
-
-
-
+add_action( 'init', 'create_taxonomies_app', 0 );	
+	
 /**********************************************************************************************************************************************************
 ***********************************************************************************************************************************************************
 ****************************************************************************FAQ****************************************************************************
