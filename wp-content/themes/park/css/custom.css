@@ -897,7 +897,7 @@ h2,
 }
 
 .slider__description .rooms__info-inner {
-    padding: 17px 23px;
+    padding: 17px 20px;
 }
 
 .slider__room {
@@ -1439,6 +1439,18 @@ select:focus {
     width: 100%;
 }
 
+.slider__room {
+    position: relative;
+}
+
+.slider__room .slider__description {
+    position: absolute;
+    z-index: 10;
+    top: 36%;
+    left: calc(50% - 590px / 2);
+    width: 590px;
+}
+
 /**/
 
 
@@ -1705,4 +1717,21 @@ select:focus {
         margin-top: 20px;
     }
 
+    .slider__room .slider__description {
+        left: 0;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .slider__room .slider__description .rooms__info {
+        max-width: 100%;
+    }
+
+    .slider__room .slider__description .rooms__info-inner {
+        max-width: 100%;
+    }
+
+    .slider__description .rooms__info h3 {
+        font-size: 1.5em;
+    }
 }

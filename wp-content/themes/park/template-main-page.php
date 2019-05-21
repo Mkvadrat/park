@@ -196,32 +196,37 @@ get_header();
             <div class="bg__img" data-parallax="scroll" data-image-src="<?php echo $block_j['image_a_subblock_main_page']['url']; ?>">
                 <?php echo $block_j['titile_a_subblock_main_page']; ?>
                 <div class="testimonial__carousel">
+                    <?php
+                        $args = array(
+                            'status' => 'approve',
+                            'number' => 10,
+                            'post_id' => 194,
+                        );
+                   
+                        $comments = get_comments( $args );
+                   
+                        if($comments){
+                    ?>
                     <div class="owl-carousel">
+
+                    <?php
+                        foreach ($comments as $comment) {
+                            $author = $comment->comment_author;
+                            $descr = mb_substr( strip_tags( $comment->comment_content ), 0, 152 );
+                     ?>
                         <div class="testimonial__item">
                             <div class="testimonial__header">
-                                <span class="testimonial__name">Наталья (Севастополь)</span>
-                                <span class="testimonial__date">07.04.19</span>
+                                <span class="testimonial__name"><?php echo $author; ?></span>
+                                <span class="testimonial__date"><?php comment_date( 'd.m.y', $comment->comment_ID ); ?></span>
                             </div>
-                            <div class="testimonial__body"><p>Интеллект естественно понимает под собой
-                                интеллигибельный закон внешнего мира, открывая новые горизонты. Апостериори,
-                                гравитационный парадокс амбивалентно понимает под собой интеллигибельный знак.
-                                Дискретность амбивалентно транспонирует гравитационный парадокс. Структурализм</p>
-                            </div>
+                            <div class="testimonial__body"><p><?php echo $descr; ?></p></div>
                         </div>
-                        <div class="testimonial__item">
-                            <div class="testimonial__header">
-                                <span class="testimonial__name">Наталья (Севастополь)</span>
-                                <span class="testimonial__date">07.04.19</span>
-                            </div>
-                            <div class="testimonial__body"><p>Интеллект естественно понимает под собой
-                                интеллигибельный закон внешнего мира, открывая новые горизонты. Апостериори,
-                                гравитационный парадокс амбивалентно понимает под собой интеллигибельный знак.
-                                Дискретность амбивалентно транспонирует гравитационный парадокс. Структурализм</p>
-                            </div>
-                        </div>
+                    <?php wp_reset_postdata(); ?>
+                    <?php } ?>
+                    <?php } ?>
                     </div>
                 </div>
-                <a href="<?php echo get_permalink( 177 ); ?>" class="btn btn__gold btn__4">ЧИТАТЬ ВСЕ ОТЗЫВЫ</a>
+                <a href="<?php echo get_permalink( 194 ); ?>" class="btn btn__gold btn__4">ЧИТАТЬ ВСЕ ОТЗЫВЫ</a>
             </div>
         </div>
 

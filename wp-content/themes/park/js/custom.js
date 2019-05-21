@@ -40,14 +40,33 @@ $(document).ready(function () {
         }
     });
 
-
     $('.toggle__booking').on('click', function () {
         $('.booking__block').toggleClass('open');
     });
+    
     $(document).mouseup(function (e) {
         var container = $(".booking__block");
         if (container.has(e.target).length === 0) {
             $('.booking__block').removeClass('open');
+        }
+    });
+    
+    //Якорь
+    $("a.scrollto").click(function() {
+      var elementClick = $(this).attr("href")
+      var destination = $(elementClick).offset().top;
+      jQuery("html:not(:animated),body:not(:animated)").animate({
+        scrollTop: destination
+      }, 800);
+      return false;
+    });
+    
+    //Отзывы
+    $('.check__block *[name="confirm"]').on('change', function () {
+        if ($(this).is(':checked')) {
+            $('.button__group *[type="submit"]').removeAttr('disabled');
+        } else {
+            $('.button__group *[type="submit"]').attr('disabled', 'disabled');
         }
     });
 
