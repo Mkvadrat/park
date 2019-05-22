@@ -1,6 +1,6 @@
 <?php
 /*
-Theme Name: Sanatorium Saki
+Theme Name: Premium park
 Theme URI: http://mkvadrat.com/
 Author: M2
 Author URI: http://mkvadrat.com/
@@ -11,160 +11,165 @@ Version: 1.0
 get_header();
 ?>
 
-	<div id="content">
-        <div class="single__content">
-            <div class="max__wrap">
-                <h1><?php the_title(); ?></h1>
-                <div class="single__slider">
-                    <div class="main-slider">
-                        <div class="slider slider__single">
-                            <div class="owl-carousel">
-								<?php
-									global $nggdb;
-									$gallery_id = getNextGallery(get_the_ID(), 'gallery_single_rooms_page');
-									$gallery_image = $nggdb->get_gallery($gallery_id[0]["ngg_id"], 'sortorder', 'ASC', false, 0, 0);
-									if($gallery_image){
-										foreach($gallery_image as $image) { 
-									?>
-										<div style="background-image: url('<?php echo nextgen_esc_url($image->imageURL); ?>')"></div>
-									<?php
-										}
-									}
-								?>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery">
-						<?php
-							global $nggdb;
-							$gallery_id = getNextGallery(get_the_ID(), 'gallery_single_rooms_page');
-							$gallery_image = $nggdb->get_gallery($gallery_id[0]["ngg_id"], 'sortorder', 'ASC', false, 0, 0);
-							if($gallery_image){
-								foreach($gallery_image as $image) { 
-							?>
-								<a class="lightbox-gallery fancybox" data-fancybox="images" href="<?php echo nextgen_esc_url($image->imageURL); ?>" rel="gallery-0">
-									<div class="visual lightbox">
-										<img src="<?php echo nextgen_esc_url($image->thumbnailURL); ?>" alt="">
-									</div>
-								</a>
-							<?php
-								}
-							}
-						?>
-                    </div>
-                </div>
-                <div class="single__info">
-                    <div class="room__details">
-                        <h4>Детали</h4>
-						<?php
-							$total_area = get_post_meta( get_the_ID(), 'total_area_single_rooms_page', $single = true );
-							$bed = get_post_meta( get_the_ID(), 'bed_single_rooms_page', $single = true );
-							$placement = get_post_meta( get_the_ID(), 'placement_single_rooms_page', $single = true );
-							$price = get_post_meta( get_the_ID(), 'price_single_rooms_page', $single = true );
-							$valute = get_post_meta( get_the_ID(), 'valute_single_rooms_page', $single = true );
-							$tl_id = get_post_meta( get_the_ID(), 'tl_id_single_rooms_page', $single = true );
-						?>
-                        <ul>
-                            <li><h4>Общая площадь</h4><?php echo $total_area ? $total_area : 0 . 'кв.м'; ?></li>
-                            <li><h4>Кровать</h4><?php echo $bed ? $bed : 0; ?></li>
-                            <li><h4>Размещение</h4><?php echo $placement ? $placement : 0; ?></li>
-                        </ul>
-                    </div>
-                    <div class="room__description">
-                        <h4>Стоимость номера</h4>
-                        <div class="b-table b-room-item ">
-                            <div class="price b-table-cell">
-                                <div class="price-value">от <span class="price-color"><?php echo $price ? $price : 0; ?></span></div>
-                                <div class="valuta">
-                                    <?php echo $valute ? $valute : ''; ?>
-                                </div>
-                            </div>
-                            <div class="book b-table-cell">
-                                <a href="/booking/?room-type=<?php echo $tl_id ? $tl_id : 0; ?>" class="btn-bt default booking-btn">Забронировать</a>
-                            </div>
-                        </div>
-						
-                        <?php if (have_posts()): while (have_posts()): the_post(); ?>
-							<?php the_content(); ?>
-						<?php endwhile; endif; ?>
-                    </div>
-                </div>
-				
-				<?php
-					$args = array(
-							'post_type'   => 'rooms',
-							'numberposts' => -1,
-							'orderby'     => 'date',
-							'order'       => 'DESC',
-					);
-		
-					$rooms_list = get_posts( $args );
-					
-					if($rooms_list){
-				?>
-                <div class="other__rooms">
-                    <h2 class="custom_heading">Другие номера</h2>
-                    <div class="owl-carousel">
-						
-						<?php foreach($rooms_list as $room){ ?>
-							<?php
-								$image_url = wp_get_attachment_image_src( get_post_thumbnail_id($room->ID), 'full'); 
-							?>
-						
-							<div class="portfolio-item">
-								<div class="he-wrap">
-									<a href="<?php echo get_permalink($room->ID); ?>" style="background-image: url('<?php echo $image_url[0] ? $image_url[0] : esc_url( get_template_directory_uri() ) . '/img/no_image.jpg' ?>')"></a>
-								</div>
-								<div class="show_text">
-									<h5><a href="<?php echo get_permalink($room->ID); ?>"><?php echo $room->post_title; ?></a></h5>
-									<ul class="room-info">
-										<?php
-											$total_area = get_post_meta( $room->ID, 'total_area_single_rooms_page', $single = true );
-											$bed = get_post_meta( $room->ID, 'bed_single_rooms_page', $single = true );
-											$placement = get_post_meta( $room->ID, 'placement_single_rooms_page', $single = true );
-											$price = get_post_meta( $room->ID, 'price_single_rooms_page', $single = true );
-											$valute = get_post_meta( $room->ID, 'valute_single_rooms_page', $single = true );
-											$tl_id = get_post_meta( $room->ID, 'tl_id_single_rooms_page', $single = true );
-										?>
-										
-										<li><span class="title"><abbr title="Общая площадь"></abbr></span><p><?php echo $total_area ? $total_area : 0 . 'кв.м'; ?></p></li>
-										
-										<li><span class="title"><abbr title="Кровать"><i class="fa fa-bed" aria-hidden="true"></i></abbr></span> <p><?php echo $bed ? $bed : 0; ?></p></li>
-										
-										<li><span class="title"><abbr title="Размещение"><i class="fa fa-users" aria-hidden="true"></i></abbr></span><p><?php echo $placement ? $placement : 0; ?></p></li>
-										
-										<li class="clearfix"></li>
-									</ul>
-								</div>
-								<div class="b-table b-book-a-price b-table-room main-page-room">
-									<div class="price b-table-cell">
-										<div class="price-value">от <span class="price-color"><?php echo $price ? $price : 0; ?></span></div>
-										<div class="valuta">
-											<?php echo $valute ? $valute : ''; ?>
-										</div>
-									</div>
-									<div class="book b-table-cell">
-										<a href="/booking/?room-type=<?php echo $tl_id ? $tl_id : 0; ?>" class="btn-bt default booking-btn">Забронировать</a>
-									</div>
-								</div>
-							</div>
-							
-						<?php } ?>
-                    </div>
-                </div>
-				<?php } ?>
-				
-                <div class="square__line">
-                    <hr>
-                    <div class="big__square"><i class="fa fa-square-o" aria-hidden="true"></i></div>
-                    <hr>
-                </div>
+	<div id="content" class="main">
+        <div class="wrapper">
 
-				<?php
-					if ( function_exists('dynamic_sidebar') )
-						dynamic_sidebar('direction-page');
-				?>
+			<?php
+				global $nggdb;
+				$gallery_id = getNextGallery(get_the_ID(), 'slider_room_single_rooms_page');
+				$gallery_image = $nggdb->get_gallery($gallery_id[0]["ngg_id"], 'sortorder', 'DESC', false, 0, 0);
+				if($gallery_image){
+			?>
+            <div class="slider slider__room">
+                <div class="slider__description">
+                    <div class="rooms__info">
+                        <div class="rooms__info-inner">
+                            <h3><?php the_title(); ?></h3>
+                            <hr>
+                            <div class="room__price">
+								<?php
+									$price = get_post_meta( get_the_ID(), 'price_room_single_rooms_page', $single = true );
+									echo $price ? $price : 0;
+								?>
+							</div>
+                        </div>
+                    </div>
+					<?php
+						$tl_id = get_post_meta( get_the_ID(), 'tl_id_room_single_rooms_page', $single = true );
+					?>
+                    <a href="/booking/?room-type=<?php echo $tl_id ? $tl_id : 0; ?>" class="btn btn__gold">Забронировать номер</a>
+                </div>
+                <div class="owl-carousel">
+					<?php foreach($gallery_image as $image) { ?>
+						<div class="bg__slider" style="background-image: url('<?php echo nextgen_esc_url($image->imageURL); ?>')"></div>
+					<?php } ?>
+                </div>
             </div>
+			<?php } ?>
+
+            <div class="section__gallery gallery__room">
+                <div class="max__wrap-text">
+					<?php if (have_posts()): while (have_posts()): the_post(); ?>
+						<?php the_content(); ?>
+					<?php endwhile; endif; ?>
+				</div>
+				
+				<?php
+					global $nggdb;
+					$gallery_id = getNextGallery(get_the_ID(), 'gallery_room_single_rooms_page');
+					$gallery_image = $nggdb->get_gallery($gallery_id[0]["ngg_id"], 'sortorder', 'DESC', false, 0, 0);
+					if($gallery_image){
+				?>
+                <div class="grid__gallery">
+					<?php foreach($gallery_image as $image) { ?>
+						<div class="gallery__item">
+							<a href="<?php echo nextgen_esc_url($image->imageURL); ?>" data-fancybox="gallery" style="background-image: url('<?php echo nextgen_esc_url($image->imageURL); ?>')"></a>
+						</div>
+					<?php } ?>
+                </div>
+            </div>
+			<?php } ?>
+			
+			<?php if(get_post_meta( get_the_ID(), 'enable_service_room_single_rooms_page', $single = true ) == 'yes'){ ?>
+            <div class="section__why section__dopinf">
+                <div class="max__wrap-text">
+                    <h2>Дополнительная информация о номере</h2>
+                </div>
+				
+				<?php
+					$image_url = wp_get_attachment_image_src(get_post_meta( get_the_ID(), 'serviceimg_room_single_rooms_page', $single = true ), 'full')
+				?>
+                <div class="grid__why" data-parallax="scroll" data-image-src="<?php echo $image_url[0] ? $image_url[0] : esc_url( get_template_directory_uri() ) . '/img/bg-why.png' ?>">
+                    <?php echo get_post_meta( get_the_ID(), 'service_room_single_rooms_page', $single = true ); ?>
+                </div>
+            </div>
+			<?php } ?>
+		
+			<?php
+				$args = array(
+					'status' => 'approve',
+					'number' => 10,
+					'post_id' => get_the_ID(),
+				);
+		   
+				$comments = get_comments( $args );
+		   
+				if($comments){
+			?>
+            <div class="section__img section__testimonials testimonials__room">
+				<?php
+					$image_url = wp_get_attachment_image_src(get_post_meta( get_the_ID(), 'reviewsimg_room_single_rooms_page', $single = true ), 'full')
+				?>
+                <div class="bg__img" data-parallax="scroll" data-image-src="<?php echo $image_url[0] ? $image_url[0] : esc_url( get_template_directory_uri() ) . '/img/bg-testim.jpg' ?>">
+                    <h3>Отзывы о номере</h3>
+                    <div class="testimonial__carousel">
+                        <div class="owl-carousel">
+							<?php
+								foreach ($comments as $comment) {
+									$author = $comment->comment_author;
+									$descr = mb_substr( strip_tags( $comment->comment_content ), 0, 152 );
+							 ?>
+                            <div class="testimonial__item">
+                                <div class="testimonial__header">
+                                    <span class="testimonial__name"><?php echo $author; ?></span>
+                                    <span class="testimonial__date"><?php comment_date( 'd.m.y', $comment->comment_ID ); ?></span>
+                                </div>
+                                <div class="testimonial__body"><p><?php echo $descr; ?></p></div>
+                            </div>
+							<?php wp_reset_postdata(); ?>
+							<?php } ?>
+                        </div>
+                    </div>
+                    <a href="<?php echo get_permalink( 177 ); ?>" class="btn btn__gold btn__4">ОСТАВИТЬ ОТЗЫВ О НОМЕРЕ</a>
+                </div>
+            </div>
+			<?php } ?>
+			
+			<?php if(get_post_meta( get_the_ID(), 'enable_service_room_single_rooms_page', $single = true ) == 'yes'){ ?>
+            <div class="section__img">
+				<?php
+					$image_url = wp_get_attachment_image_src(get_post_meta( get_the_ID(), 'actionimg_room_single_rooms_page', $single = true ), 'full')
+				?>
+                <div class="bg__img" data-parallax="scroll" data-image-src="<?php echo $image_url[0] ? $image_url[0] : esc_url( get_template_directory_uri() ) . '/img/banner-bottom.jpg' ?>">
+                    <?php echo get_post_meta( get_the_ID(), 'action_room_single_rooms_page', $single = true ); ?>
+                </div>
+            </div>
+			<?php } ?>
+			
+			<?php
+				$args = array(
+						'post_type'   => 'rooms',
+						'numberposts' => -1,
+						'orderby'     => 'date',
+						'order'       => 'DESC',
+				);
+	
+				$rooms_list = get_posts( $args );
+				
+				if($rooms_list){
+			?>
+            <div class="section__related">
+                <div class="grid__rooms owl-carousel">
+					<?php foreach($rooms_list as $room){ ?>
+					<?php
+						$image_url = wp_get_attachment_image_src( get_post_thumbnail_id($room->ID), 'full');
+						$price = get_post_meta( get_the_ID(), 'price_room_single_rooms_page', $single = true );		
+					?>
+                    <a href="<?php echo get_permalink($room->ID); ?>" class="room__item">
+                        <div class="room__item-inner">
+                            <div class="bg__room" style="background-image: url('<?php echo $image_url[0] ? $image_url[0] : esc_url( get_template_directory_uri() ) . '/img/no_image.jpg' ?>')"></div>
+                            <div class="room__info">
+                                <h3><?php echo $room->post_title; ?></h3>
+                                <hr>
+                                <div class="room__price"><?php echo $price ? $price : 0; ?></div>
+                            </div>
+                        </div>
+                    </a>
+					<?php } ?>
+                </div>
+            </div>
+			<?php } ?>
+
         </div>
     </div>
 

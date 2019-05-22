@@ -1801,7 +1801,7 @@ msgstr "<a href=\"%s\">Пожалуйста, обновите WordPress</a>."
 #. translators: %s: Update PHP page URL
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:663
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:682
-#: wp-admin/includes/update-core.php:950 wp-admin/install.php:247
+#: wp-admin/includes/update-core.php:952 wp-admin/install.php:247
 #: wp-admin/update-core.php:80 wp-admin/update-core.php:313
 #: wp-admin/upgrade.php:89
 msgid "<a href=\"%s\">Learn more about updating PHP</a>."
@@ -6390,8 +6390,8 @@ msgstr "Активности пока не было."
 msgid "Recently Published"
 msgstr "Недавно опубликованы"
 
-#: wp-admin/includes/update-core.php:927 wp-admin/includes/update-core.php:1022
-#: wp-admin/includes/update-core.php:1047
+#: wp-admin/includes/update-core.php:927 wp-admin/includes/update-core.php:1027
+#: wp-admin/includes/update-core.php:1052
 #: wp-admin/includes/class-core-upgrader.php:159
 #: wp-admin/includes/class-wp-upgrader.php:165
 msgid "The update cannot be installed because we will be unable to copy some files. This is usually due to inconsistent file permissions."
@@ -6555,7 +6555,7 @@ msgstr "Обновление темы: %s"
 msgid "Updating plugin: %s"
 msgstr "Обновление плагина: %s"
 
-#: wp-admin/includes/update-core.php:1088
+#: wp-admin/includes/update-core.php:1093
 msgid "There is not enough free disk space to complete the update."
 msgstr "Недостаточно места на диске, чтобы завершить обновление."
 
@@ -6611,11 +6611,11 @@ msgstr "Контрольная сумма файла (%1$s) не соответ�
 msgid "This password will not be stored on the server."
 msgstr "Этот пароль не будет храниться на сервере."
 
-#: wp-admin/includes/update-core.php:966
+#: wp-admin/includes/update-core.php:971
 msgid "Preparing to install the latest version&#8230;"
 msgstr "Подготовка к установке свежей версии&#8230;"
 
-#: wp-admin/includes/update-core.php:1036
+#: wp-admin/includes/update-core.php:1041
 msgid "Copying the required files&#8230;"
 msgstr "Копирование необходимых файлов&#8230;"
 
@@ -7362,7 +7362,7 @@ msgstr "Ваше имя пользователя на WordPress.org:"
 msgid "Get Favorites"
 msgstr "Получить список"
 
-#: wp-admin/includes/update-core.php:1351 wp-admin/update-core.php:577
+#: wp-admin/includes/update-core.php:1356 wp-admin/update-core.php:577
 msgid "Welcome to WordPress %1$s. You will be redirected to the About WordPress screen. If not, click <a href=\"%2$s\">here</a>."
 msgstr "Добро пожаловать в WordPress %1$s. Сейчас вы будете перенаправлены на экран &laquo;О WordPress&raquo;. Если этого не произошло, нажмите <a href=\"%2$s\">сюда</a>."
 
@@ -8179,7 +8179,7 @@ msgstr "В <strong>версии %s</strong> решены несколько пр
 msgid "This screen allows you to choose your permalink structure. You can choose from common settings or create custom URL structures."
 msgstr "На этом экране можно выбрать структуру постоянных ссылок. Вы можете выбрать один из предложенных вариантов или создать произвольную структуру URL."
 
-#: wp-admin/includes/update-core.php:1352 wp-admin/update-core.php:578
+#: wp-admin/includes/update-core.php:1357 wp-admin/update-core.php:578
 msgid "Welcome to WordPress %1$s. <a href=\"%2$s\">Learn more</a>."
 msgstr "Добро пожаловать в WordPress %1$s. <a href=\"%2$s\">Узнать больше</a>."
 
@@ -10252,7 +10252,7 @@ msgstr "Обновить плагины"
 msgid "Update WordPress"
 msgstr "Обновить WordPress"
 
-#: wp-admin/includes/update-core.php:1348
+#: wp-admin/includes/update-core.php:1353
 #: wp-admin/includes/class-wp-automatic-updater.php:379
 #: wp-admin/update-core.php:576
 msgid "WordPress updated successfully"
@@ -10482,11 +10482,11 @@ msgstr "Версия: %s"
 msgid "Unable to locate WordPress theme directory."
 msgstr "Не удалось определить директорию тем WordPress."
 
-#: wp-admin/includes/update-core.php:960
+#: wp-admin/includes/update-core.php:965
 msgid "The update cannot be installed because WordPress %1$s requires PHP version %2$s or higher. You are running version %3$s."
 msgstr "Обновление не может быть установлено, так как WordPress %1$s требует PHP версии %2$s или выше. У вас используется версия %3$s."
 
-#: wp-admin/includes/update-core.php:962
+#: wp-admin/includes/update-core.php:967
 msgid "The update cannot be installed because WordPress %1$s requires MySQL version %2$s or higher. You are running version %3$s."
 msgstr "Обновление не может быть установлено, так как WordPress %1$s требует MySQL версии %2$s или выше. У вас используется версия %3$s."
 
@@ -10498,7 +10498,7 @@ msgstr "Проверка распакованных файлов&#8230;"
 msgid "The update could not be unpacked"
 msgstr "Обновление не удалось распаковать"
 
-#: wp-admin/includes/update-core.php:1212
+#: wp-admin/includes/update-core.php:1217
 msgid "Upgrading database&#8230;"
 msgstr "Обновление базы данных&#8230;"
 
@@ -11385,7 +11385,7 @@ msgstr "Рубрики:"
 msgid "Could not fully remove the theme %s."
 msgstr "Не удалось полностью удалить тему %s."
 
-#: wp-admin/includes/update-core.php:958
+#: wp-admin/includes/update-core.php:963
 msgid "The update cannot be installed because WordPress %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s."
 msgstr "Обновление не может быть установлено, так как WordPress %1$s требует PHP версии %2$s или выше и MySQL версии %3$s или выше. У вас используется PHP %4$s и MySQL %5$s."
 
@@ -11957,18 +11957,18 @@ msgstr "Установка свежей версии&#8230;"
 msgid "Destination folder already exists."
 msgstr "Каталог назначения уже существует."
 
-#: wp-admin/includes/update-core.php:1291
+#: wp-admin/includes/update-core.php:1296
 #: wp-admin/includes/class-wp-upgrader.php:163 wp-admin/includes/file.php:1493
 #: wp-admin/includes/file.php:1618 wp-admin/includes/file.php:1684
 msgid "Could not create directory."
 msgstr "Не удалось создать директорию."
 
-#: wp-admin/includes/update-core.php:1028
+#: wp-admin/includes/update-core.php:1033
 #: wp-admin/includes/class-wp-upgrader.php:167
 msgid "Enabling Maintenance mode&#8230;"
 msgstr "Включение режима обслуживания&#8230;"
 
-#: wp-admin/includes/update-core.php:1123
+#: wp-admin/includes/update-core.php:1128
 #: wp-admin/includes/class-wp-upgrader.php:168
 msgid "Disabling Maintenance mode&#8230;"
 msgstr "Отключение режима обслуживания&#8230;"
@@ -13065,8 +13065,8 @@ msgstr "Не удалось распаковать файл из архива."
 msgid "Could not extract file from archive."
 msgstr "Не удалось извлечь файл из архива."
 
-#: wp-admin/includes/update-core.php:1163
-#: wp-admin/includes/update-core.php:1285 wp-admin/includes/file.php:1522
+#: wp-admin/includes/update-core.php:1168
+#: wp-admin/includes/update-core.php:1290 wp-admin/includes/file.php:1522
 #: wp-admin/includes/file.php:1639 wp-admin/includes/file.php:1678
 msgid "Could not copy file."
 msgstr "Не удалось скопировать файл."

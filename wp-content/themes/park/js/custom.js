@@ -15,7 +15,7 @@ $(document).ready(function () {
         items: 2,
         margin: 30,
         nav: true,
-        navText: ["<img src='img/left-arrow.svg'/>", "<img src='img/right-arrow.svg'/>"],
+        navText: ["<img src='/wp-content/themes/park/img/left-arrow.svg'/>", "<img src='/wp-content/themes/park/img/right-arrow.svg'/>"],
         responsive: {
             0: {
                 items: 1

@@ -110,7 +110,7 @@ get_header();
 
         <?php $block_e = get_field('text_e_block_main_page'); ?>
         <div class="section__img">
-            <div class="bg__img" data-parallax="scroll" data-image-src="<?php echo $block_a['image_a_subblock_main_page']['url']; ?>">
+            <div class="bg__img" data-parallax="scroll" data-image-src="<?php echo $block_e['image_a_subblock_main_page']['url']; ?>">
                 <?php echo $block_e['text_a_subblock_main_page']; ?>
             </div>
         </div>
