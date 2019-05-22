@@ -57,14 +57,76 @@ a {
 .booking__block {
     width: calc(100% - 215px);
     height: 70px;
-    background: linear-gradient(#fcc344 0%, #8b5b00 100%);
     position: fixed;
     bottom: 0;
     left: 215px;
     z-index: 10;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 0 1%;
+    background: linear-gradient(#e9ce75 0%, #be9527 100%);
+}
+
+.booking__form {
+    width: calc(100% - 200px);
+    max-width: 690px;
+    margin-left: 30px;
+}
+
+.booking__form form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.booking__form form .fields__group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.booking__form form .fields__group label {
+    font-family: "PT Sans", sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14.4px;
+    text-align: left;
+    color: #fff;
+    margin: 0 10px 0;
+}
+
+.booking__form form .fields__group input {
+    width: 161px;
+    height: 25px;
+    background: #fff;
+    font-family: "PT Sans", sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14.4px;
+    text-align: left;
+    color: #000;
+    margin: 0;
+}
+
+.booking__form form .fields__group button {
+    width: 124px;
+    height: 30px;
+    border-radius: 6px;
+    background: #a00000;
+    font-family: "PT Serif", serif;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 27px;
+    text-align: center;
+    color: #fff;
+    margin: 0;
+    box-shadow: none;
+    border: none;
 }
 
 .header__top a {
@@ -162,15 +224,16 @@ a {
 
 .header__menu ul > li.active a.link__parent,
 .header__menu ul > li.open a.link__parent,
-.header__menu ul > li:hover a.link__parent {
-    color: rgba(255, 255, 255, .5);
-    background: linear-gradient(#fcc344 0%, #8b5b00 100%);
+.header__menu ul > li:hover a.link__parent,
+.header__menu > div > ul > li:hover > a {
+    color: rgba(255, 255, 255, 1);
+    background: linear-gradient(#e9ce75 0%, #be9527 100%);
 }
 
 .header__menu ul > li.active a.link__parent span,
 .header__menu ul > li.open a.link__parent span,
 .header__menu ul > li:hover a.link__parent span {
-    border-bottom-color: #8b5b00;
+    border-bottom-color: #be9527;
 }
 
 .header__menu ul > li.active a.link__parent + .dropdown-toggle,
@@ -179,8 +242,8 @@ a {
 .header__menu ul > li:hover > a.link__paren,
 .header__menu ul > li a.link__paren + .dropdown-toggle:hover,
 .header__menu ul > li .dropdown-toggle:hover {
-    color: rgba(255, 255, 255, .5);
-    background: linear-gradient(#fcc344 0%, #8b5b00 100%);
+    color: rgba(255, 255, 255, 1);
+    background: linear-gradient(#e9ce75 0%, #be9527 100%);
 }
 
 .header__menu .dropdown-menu {
@@ -424,8 +487,12 @@ h2,
     font-weight: normal;
     font-size: 18px;
     line-height: 24px;
-    text-align: center;
+    text-align: left;
     color: #c3c3c3;
+}
+
+.max__wrap-text p.text__center {
+    text-align: center;
 }
 
 .max__wrap-text {
@@ -446,9 +513,9 @@ h2,
 
 .bg__img {
     height: 400px;
-    /*background-repeat: no-repeat;
+    background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;*/
+    background-size: cover;
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -1451,8 +1518,25 @@ select:focus {
     width: 590px;
 }
 
+p.text__center {
+    text-align: center;
+}
+
+.max__wrap-p > p {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
 /**/
 
+
+@media (max-width: 1170px) {
+    .booking__form form .fields__group {
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin: 0;
+    }
+}
 
 @media (min-width: 992px) {
 
@@ -1489,6 +1573,8 @@ select:focus {
 
     .toggle__booking {
         display: block;
+        width: 100%;
+        text-align: center;
     }
 
     .booking__block h3 {
@@ -1658,6 +1744,13 @@ select:focus {
         transition: all .3s ease-in-out;
         max-height: 300px;
     }
+
+    .booking__form {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0 10px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1733,5 +1826,13 @@ select:focus {
 
     .slider__description .rooms__info h3 {
         font-size: 1.5em;
+    }
+
+    .booking__form form {
+        justify-content: center;
+    }
+
+    .booking__form form .fields__group {
+        margin: 0 0 7px;
     }
 }
