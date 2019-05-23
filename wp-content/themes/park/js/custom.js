@@ -69,5 +69,13 @@ $(document).ready(function () {
             $('.button__group *[type="submit"]').attr('disabled', 'disabled');
         }
     });
+    
+    $('.check__block *[name="confirm"]').prop( "checked", false );
+    
+    $('.button__group *[type="submit"]').attr('disabled', 'disabled');
+    
+    $(".fancybox-inline").fancybox({
+        touch: false
+    });
 
 });
