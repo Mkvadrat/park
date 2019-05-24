@@ -21,7 +21,7 @@ get_header();
             </div>
 
             <div class="section">
-                <div class="max__wrap-text">
+                <div class="max__wrap-text text__center">
                     <?php if (have_posts()): while (have_posts()): the_post(); ?>
                         <?php the_content(); ?>
                     <?php endwhile; endif; ?>
@@ -132,29 +132,31 @@ get_header();
             </div>
 
             <div class="form__block form__contacts form__testimonials" id="to-comment">
-                <form id="commentformvis">
-                    <h3>Оставить отзыв</h3>
-                    <div class="fields__group">
-                        <span><input type="text" name="author" id="author" placeholder="Ваше имя*"></span>
-                        <span><input type="email" name="email" id="email" placeholder="E-mail*"></span>
+                <div class="form__form">
+                    <form id="commentformvis">
+                        <h3>Оставить отзыв</h3>
+                        <div class="fields__group">
+                            <span><input type="text" name="author" id="author" placeholder="Ваше имя*"></span>
+                            <span><input type="email" name="email" id="email" placeholder="E-mail*"></span>
+                        </div>
+                        <div class="fields__group">
+                            <textarea name="comment" id="comment" placeholder="Отзыв*"></textarea>
+                        </div>
+                        <?php echo comment_id_fields(); ?>
+                        <div class="respond"></div>
+                    </form>
+
+                    <div class="check__block">
+                        <label><input type="checkbox" name="confirm" class="confirm" value="1">&nbsp; Я согласен на обработку персональных данных.</label>
                     </div>
-                    <div class="fields__group">
-                        <textarea name="comment" id="comment" placeholder="Отзыв*"></textarea>
+                    <div class="button__group">
+                        <input type="submit" onclick="submit();" class="btn btn__gold btn__2 submit" value="ОТПРАВИТЬ" disabled="disabled">
                     </div>
-                    <?php echo comment_id_fields(); ?>
-                    <div class="respond"></div>
-                </form>
-                
-                <div class="check__block">
-                    <label><input type="checkbox" name="confirm" class="confirm" value="1">&nbsp; Я согласен на обработку персональных данных.</label>
-                </div>
-                <div class="button__group">
-                    <input type="submit" onclick="submit();" class="btn btn__gold btn__2 submit" value="ОТПРАВИТЬ" disabled="disabled">
                 </div>
             </div>
 
             <div class="section pb0">
-                <div class="max__wrap-text">
+                <div class="max__wrap-text text__center">
                     <p>Ваш отзыв появится на сайте после модерации.</p>
                 </div>
             </div>
