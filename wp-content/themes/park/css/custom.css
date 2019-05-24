@@ -1527,6 +1527,34 @@ p.text__center {
     padding-right: 40px;
 }
 
+.slider__404{
+    background: url("../img/park-404.jpg")no-repeat center;
+    background-size: cover;
+    height: calc(100vh - 70px);
+    margin-bottom: -50px;
+}
+.slider__404 .slider__description {
+    position: absolute;
+    z-index: 10;
+    top: 36%;
+    left: calc(50% - 590px / 2);
+    width: 590px;
+    text-align: center;
+}
+.slider__404 .rooms__info,
+.slider__404 .rooms__info .rooms__info-inner{
+    width: 100%;
+}
+.slider__404 .btns__block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+.slider__404 .btns__block .btn {
+    margin: 0 5px;
+}
 /**/
 
 
