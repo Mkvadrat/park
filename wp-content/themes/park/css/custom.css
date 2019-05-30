@@ -30,7 +30,7 @@ a {
 }
 
 .header {
-    width: 215px;
+    width: 230px;
     height: 100%;
     position: fixed;
     top: 0;
@@ -55,11 +55,11 @@ a {
 }
 
 .booking__block {
-    width: calc(100% - 215px);
-    height: 70px;
+    width: calc(100% - 230px);
+    height: 50px;
     position: fixed;
     bottom: 0;
-    left: 215px;
+    left: 230px;
     z-index: 10;
     display: flex;
     align-items: center;
@@ -194,12 +194,12 @@ a {
     box-shadow: none;
     background: #191616;
     border: none;
-    border-left: 1px solid rgba(255, 255, 255, .2);
+    border-left: 1px solid rgba(255, 255, 255, .08);
     border-radius: 0;
 }
 
 .header__menu ul li a span {
-    border-bottom: 1px solid rgba(255, 255, 255, .2);
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
     display: block;
     margin: 0 28px;
 }
@@ -210,7 +210,7 @@ a {
 }
 
 .header__menu ul li:first-child a span {
-    border-top: 1px solid rgba(255, 255, 255, .2);
+    border-top: 1px solid rgba(255, 255, 255, .08);
 }
 
 .header__menu ul li:last-child a {
@@ -262,7 +262,7 @@ a {
 .header__menu .dropdown-menu li {
     margin: 0 28px;
     padding: 10px 0;
-    border-bottom: 1px solid #C1C1C1;
+    border-bottom: 1px solid rgba(193, 193, 193, .15);
     width: 159px;
 }
 
@@ -343,7 +343,7 @@ a {
 }
 
 .soc__block {
-    margin-bottom: 44px;
+    margin-bottom: 28px;
 }
 
 .soc__block a {
@@ -384,7 +384,7 @@ a {
 }
 
 .wrapper {
-    padding-left: 215px;
+    padding-left: 230px;
 }
 
 .slider .owl-dots {
@@ -428,8 +428,7 @@ a {
 
 .slider__text {
     border-radius: 13px;
-    background: #fff;
-    opacity: 0.9;
+    background: rgba(255, 255, 255, .7);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -441,8 +440,8 @@ a {
 .slider__text p {
     font-family: "PT Serif", serif;
     font-weight: normal;
-    font-size: 40px;
-    line-height: 40px;
+    font-size: 30px;
+    line-height: 30px;
     text-align: center;
     color: #191616;
     text-transform: uppercase;
@@ -484,7 +483,6 @@ h2,
 }
 
 .max__wrap-text p {
-    max-width: 729px;
     font-family: "PT Sans", sans-serif;
     font-weight: normal;
     font-size: 18px;
@@ -505,7 +503,7 @@ h2,
 }
 
 #content.main {
-    padding-bottom: 120px;
+    padding-bottom: 100px;
 }
 
 .btn__gold.btn__3 {
@@ -538,7 +536,7 @@ h2,
 }
 
 .section {
-    padding-bottom: 55px;
+    padding-bottom: 35px;
 }
 
 .grid__rooms {
@@ -722,7 +720,6 @@ h2,
 .grid__gallery {
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
     flex-wrap: wrap;
     padding: 15px 26px;
     margin-bottom: 22px;
@@ -755,7 +752,7 @@ h2,
     width: 100%;
     max-width: 670px;
     margin: 0 auto 30px;
-    padding: 0 45px;
+    padding: 0 70px;
     position: relative;
 }
 
@@ -978,7 +975,7 @@ h2,
 }
 
 .slider.slider__room .owl-item .bg__slider {
-    height: calc(100vh - 70px - 27px);
+    height: calc(100vh - 70px);
 }
 
 .section__dopinf .grid__why {
@@ -1110,7 +1107,9 @@ h2,
 
 .max__wrap {
     width: 100%;
-    max-width: 100%;
+    max-width: 1100px;
+	margin-left: auto;
+	margin-right: auto;
     padding-left: 40px;
     padding-right: 40px;
 }
@@ -1410,7 +1409,7 @@ select:focus {
 
 .form__contacts {
     max-width: 100%;
-    background: rgba(255, 255, 255, .9);
+    background: rgba(255, 255, 255, 1);
 }
 
 .form__block textarea {
@@ -1423,7 +1422,8 @@ select:focus {
 }
 
 .form__testimonials {
-    max-width: calc(100% - 68px);
+    /*max-width: calc(100% - 68px);*/
+    max-width: 1100px;
     margin-top: 35px;
     margin-bottom: 20px;
 }
@@ -1528,7 +1528,7 @@ p.text__center {
     text-align: center;
 }
 
-.max__wrap-p > p {
+.max__wrap-p {
     padding-left: 40px;
     padding-right: 40px;
 }
@@ -1639,6 +1639,93 @@ div.wpcf7 {
     color: #fff;
     font-weight: bold;
 }
+.grid__contacts,
+.grid__contacts.text__left,
+.max__wrap-p > .text__center,
+.max__wrap-p > p,
+.grid__half,
+.max__wrap-all-p p,
+.max__wrap-text,
+.testimonial__carousel{
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;	
+}
+.max__wrap-text{
+	padding: 0 30px;
+}
+.services__img {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.section__related .grid__rooms {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.section__related .grid__rooms .owl-dots{
+	display: none;
+}
+.tables{
+	border: 1px solid #DDA612;
+	border-radius: 10px;
+    width: 1040px;
+}
+table{
+	width: 100%;
+}
+table td{
+	height: 28px;
+	font-family: "PT Sans", sans-serif;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 18px;
+	text-align: center;
+	color: #dca512;
+}
+table td:not(:last-child) {
+    border-right: 1px solid;
+}
+table thead td,
+table tbody tr:not(:last-child) td {
+    border-bottom: 1px solid;
+}
+table thead td{
+	height: 44px;
+    background: rgba(221, 166, 18, .1);
+}
+table thead tr:nth-child(2) td{
+	height: 35px;
+}
+table thead tr:nth-child(3) td{
+	height: 56px;
+}
+table tbody tr td.price{
+	font-weight: bold;
+}
+table tbody tr td{
+	height: 50px;
+}
+table thead tr:nth-child(1) td{	
+    width: calc((100% - 183px - 70px - 58px) / 4);
+}
+table thead tr:nth-child(1) td:nth-child(1),
+table thead tr:nth-child(1) td:nth-child(2){
+	width: 70px;
+}
+table thead tr:nth-child(1) td:nth-child(3){
+	width: 58px;
+}
+.responsive__table{
+	max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+	overflow-x: auto;
+}
+.slider__text h3{
+	text-transform: none;
+}
+
 
 /**/
 
@@ -1649,6 +1736,7 @@ div.wpcf7 {
         flex-direction: column;
         margin: 0;
     }
+
 }
 
 @media (min-width: 992px) {
@@ -1656,7 +1744,7 @@ div.wpcf7 {
     .header__menu .dropdown-menu {
         position: fixed;
         top: 0;
-        left: 215px;
+        left: 230px;
         width: 0;
         height: 100%;
         background: #191616;
@@ -1670,9 +1758,10 @@ div.wpcf7 {
     }
 
     .header__menu .open > .dropdown-menu {
-        width: 215px;
+        width: 230px;
         transition: width .3s ease-in-out;
     }
+	
 }
 
 @media (max-width: 991px) {
@@ -1736,7 +1825,7 @@ div.wpcf7 {
     }
 
     .header {
-        left: -215px;
+        left: -230px;
         transition: all .2s;
     }
 
@@ -1864,15 +1953,81 @@ div.wpcf7 {
         margin: 0;
         padding: 0 10px;
     }
+	.max__wrap {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.testimonial__item {
+    padding: 15px;
+}
+#content.main {
+    padding-bottom: 45px;
+}
+.section__tabs .header__tabs .nav-tabs {
+    margin: 0 0 10px;
+}
+.section__tabs .header__tabs {
+    justify-content: center;
+}
+.nav-tabs>li, .nav-pills>li {
+    float: none;
+}
+.section__tabs .header__tabs .btn.scrollto{
+	    margin-bottom: 12px;
+}
+.grid__contacts {
+    padding: 27px 10px;
+}
+.grid__contacts.text__left .form__block.form__contacts {
+    margin: 0;
+    max-width: 100%;
+}
+.max__wrap-p {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.max__wrap-text{
+	padding: 0 10px;
+}
+.header__menu ul li.open + li a span {
+    border-top: 1px solid rgba(255, 255, 255, .08);
+}
+.text__half p:last-child {
+    margin-bottom: 25px;
+}
+.room__item {
+    height: 360px;
+}
+.room__info hr {
+    margin: 7px auto 3px;
+}
 }
 
 @media (max-width: 768px) {
     .form__block, .form__light-book.form__block {
-        max-width: calc(100% - 30px);
+        max-width: calc(100% - 20px);
     }
 
     .form__block .fields__group span {
         width: 100%;
+    }
+	 .slider__room .slider__description {
+        left: 0;
+        width: 100%;
+        padding: 0 20px;
+		position: relative;
+		top: 0;
+    }
+
+    .slider__text h3,
+    .slider__text p {
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 24px;
+    }
+
+    .slider__description {
+        padding: 0 40px;
     }
 }
 
@@ -1899,17 +2054,6 @@ div.wpcf7 {
         padding: 30px 0 40px;
     }
 
-    .slider__text h3,
-    .slider__text p {
-        font-weight: normal;
-        font-size: 24px;
-        line-height: 24px;
-    }
-
-    .slider__description {
-        padding: 0 40px;
-    }
-
     .massengers__item {
         width: 100%;
     }
@@ -1928,7 +2072,13 @@ div.wpcf7 {
         left: 0;
         width: 100%;
         padding: 0 20px;
+		position: relative;
+		top: 0;
     }
+	
+	.slider .owl-dots {
+		bottom: 0;
+	}
 
     .slider__room .slider__description .rooms__info {
         max-width: 100%;

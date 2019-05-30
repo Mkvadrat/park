@@ -86,8 +86,11 @@ get_header();
                                 foreach($comments as $comment){
                                     $author = $comment->comment_author;
                                     $descr = strip_tags( $comment->comment_content );
-                                    $rooms = get_comment_meta($comment->comment_ID, 'rooms', true);
-
+                                    $meta = get_comment_meta($comment->comment_ID, 'rooms', true);
+                                    $ex = explode("-", $meta);
+                                    $post_id = isset($ex[1]) ? $ex[1] : 0;
+                                    $rooms = get_post( $post_id );
+                                    
                                     global $cnum;
 
                                     // определяем первый номер, если включено разделение на страницы
@@ -106,7 +109,7 @@ get_header();
                             <div class="testimonial__item">
                                 <div class="testimonial__header">
                                     <span class="testimonial__name"><?php echo $author; ?></span>
-                                    <span class="testimonial__date"><strong>Номер: <i><?php echo $rooms; ?></i></strong><?php comment_date( 'd.m.y', $comment->comment_ID ); ?></span>
+                                    <span class="testimonial__date"><strong>Номер: <i><a href="<?php echo get_permalink($rooms->ID); ?>"><?php echo $rooms->post_title; ?></a></i></strong><?php comment_date( 'd.m.y', $comment->comment_ID ); ?></span>
                                 </div>
                                 <div class="testimonial__body">
                                     <p><?php echo $descr; ?></p>
@@ -153,7 +156,7 @@ get_header();
 
                                 <select name="rooms" id="rooms">
                                 <?php foreach($posts as $post){ ?>
-                                    <option value="<?php echo $post->post_title; ?>"><?php echo $post->post_title; ?></option>
+                                    <option value="<?php echo $post->post_title . '-' . $post->ID; ?>"><?php echo $post->post_title; ?></option>
                                 <?php } ?>
                             </select>
                             <?php } ?>
@@ -183,11 +186,11 @@ get_header();
 
         </div>
     </div>
-
+    
     <script language="javascript">
         function submit(){
             $("#commentform").submit();
         }
     </script>
-
+    
 <?php get_footer(); ?>

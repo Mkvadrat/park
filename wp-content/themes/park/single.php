@@ -26,7 +26,7 @@ get_header();
             </div>
 
             <div class="section pb10">
-                <div class="max__wrap-p">
+                <div class="max__wrap-p max__wrap-all-p">
                     <?php if (have_posts()): while (have_posts()): the_post(); ?>
                         <?php the_content(); ?>
                     <?php endwhile; endif; ?>

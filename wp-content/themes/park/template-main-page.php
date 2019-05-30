@@ -8,7 +8,7 @@ get_header();
     
     <div id="content" class="main">
         <div class="wrapper">
-            <div class="slider">
+            <div class="slider slider__room">
                 <div class="owl-carousel">
                     <?php
                         global $nggdb;
@@ -32,7 +32,7 @@ get_header();
             
         <?php $block_a = get_field('text_a_block_main_page'); ?>
         <div class="section">
-            <div class="max__wrap-text">
+            <div class="max__wrap-text text__center">
                 <?php echo $block_a['text_a_subblock_main_page']; ?>
             </div>
         </div>
@@ -46,7 +46,7 @@ get_header();
         <?php $rooms = getRelatedMeta(get_the_ID(), 'choice_numbers_main_page'); ?>
         <?php if($rooms){ ?>
         <div class="section__rooms">
-            <div class="max__wrap-text">
+            <div class="max__wrap-text text__center">
                 <?php echo get_post_meta( get_the_ID(), 'text_b_block_main_page', $single = true ); ?>
             </div>
             <div class="grid__rooms">
@@ -84,7 +84,7 @@ get_header();
         <?php $services = getRelatedMeta(get_the_ID(), 'choice_services_main_page'); ?>
         <?php if($services){ ?>
         <div class="section__services">
-            <div class="max__wrap-text">
+            <div class="max__wrap-text text__center">
                 <?php echo get_post_meta( get_the_ID(), 'text_d_block_main_page', $single = true ); ?>
             </div>
             <div class="grid__services">
