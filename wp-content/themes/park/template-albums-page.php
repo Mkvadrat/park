@@ -43,8 +43,9 @@ get_header();
                                 }   
                     ?>
                             <div class="gallery__item">
-                                <a href="<?php echo $gal_info->pageid ? get_permalink($gal_info->pageid) : '/#/'; ?>">
-                                    <img src="<?php echo $previewpic; ?>"><?php echo $album->name; ?>
+                                <a href="<?php echo $gal_info->pageid ? get_permalink($gal_info->pageid) : '/#/'; ?>" style="background-image: url('<?php echo $previewpic; ?>')"></a>
+                                <a href="<?php echo $gal_info->pageid ? get_permalink($gal_info->pageid) : '/#/'; ?>"class="name__link">
+                                    <?php echo $album->name; ?>
                                 </a>
                             </div>
                         <?php } ?>

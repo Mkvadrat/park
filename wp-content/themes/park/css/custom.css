@@ -732,7 +732,7 @@ h2,
     border-radius: 10px;
 }
 
-.gallery__item a {
+.gallery__item a:not(.name__link) {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -1867,6 +1867,24 @@ table thead tr:first-child td:nth-child(1) {
 .inst-link:hover{
     color: #333;
     background: #fff;
+}
+
+.grid__gallery .gallery__item{
+    margin-bottom: 40px;
+}
+
+.name__link{
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: center;
+    color: #d5ae44;
+    text-transform: uppercase;
+    display: block;
+    transition: none;
+    border-radius: 0 !important;
+    position: relative;
 }
 
 /**/
