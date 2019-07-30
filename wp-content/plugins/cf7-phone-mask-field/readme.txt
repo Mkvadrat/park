@@ -2,8 +2,8 @@
 Contributors: heorhiiev
 Tags: Contact Form 7, Contact Form 7 phone, mask, mask field, phone field, telephone field, telephone, custom mask, custom mask field, cf7, contact form 7 mask field, contact form 7 phone mask, contact form 7 phone field, маска ввода, маска телефонного номера
 Requires at least: 4.0
-Tested up to: 5.0
-Stable tag: 1.2
+Tested up to: 5.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,4 +43,7 @@ Just install from your WordPress "Plugins > Add New" screen and all will be well
 * Added support for the placeholder field.
 
 = 1.2 =
-* Added a form-tag generator field for the placeholder value
+* Added a form-tag generator field for the placeholder value.
+
+= 1.3 =
+* Added support for the type value.

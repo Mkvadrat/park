@@ -2,11 +2,11 @@
 Contributors: photocrati, imagely
 Tags: wordpress gallery plugin, gallery, nextgen, nextgen gallery, photo gallery, image gallery, photography, slideshow, images, photo, photo album, watermark
 Requires at least: 4.0.0
-Stable tag: 3.2.2
-Tested up to: 5.2
+Stable tag: 3.2.10
+Tested up to: 5.2.2
 License: GPLv2
 
-The most popular WordPress gallery plugin and one of the most popular plugins of all time with over 25 million downloads.
+The most popular WordPress gallery plugin and one of the most popular plugins of all time with over 26 million downloads.
 
 == Description ==
 
@@ -178,6 +178,36 @@ For more information, feel free to visit the official website for the NextGEN Ga
 
 
 == Changelog ==
+
+= V3.2.10 - 07.23.2019 =
+* Changed: Updated branding for Freemius opt-in
+* Fixed:   IGW queries
+
+= V3.2.8 - 07.16.2019 =
+* NEW:     Added support for the shortcode_atts_ngg filter
+* NEW:     Importing images from a folder now works recursively
+* Fixed:   'Scan folder for new images' did not assign a gallery preview image
+* Fixed:   AJAX actions like image uploads were failing if the default request to '/' went to an index.html instead of index.php
+* Fixed:   Admin page controllers / templates were running twice
+* Fixed:   Compatibility with Delightful Downloads
+* Fixed:   Compatibility with Elementor
+* Fixed:   Copying images to the Media Library was broken if the server lacked the fileinfo extension
+* Fixed:   Disable Manage Gallery's move/copy images submit button to prevent multiple submissions
+* Fixed:   Made 'Recover image from backup' reset thumbnail crop settings
+* Fixed:   Minor error emitted from common.js
+* Fixed:   Move Images / Copy Images now also moves/copies dynamically generated versions
+* Fixed:   The uninstall routine handler was generating a PHP warning accessing an undeclared variable
+* Fixed:   Zip uploads from some macOS users was failing
+
+= V3.2.4 - 06.04.2019 =
+* NEW:     Added some methods to the window.galleries object prototype for retrieving display settings
+* Secured: Zip extraction process (thanks to Slavco Mihajloski / @mslavco)
+* Changed: Removed the now-deprecated 'publish' link from the Manage Gallery image actions row
+* Fixed:   A PHP warning emitted on Gallery > Other Options if the current gallery path cannot be written to
+* Fixed:   Added compatibility check for the official FontAwesome plugin
+* Fixed:   Clicking a checkbox in the Insert Gallery Window's "Sort or exclude images" tab was not functioning
+* Fixed:   Resized images were becoming larger than the original in some circumstances
+* Fixed:   URL to static assets like JS and CSS files was incorrect when NextGen Gallery was a symlink
 
 = V3.2.2 - 05.09.2019 =
 * Changed: Updated video Links

@@ -853,6 +853,11 @@ class Mixin_Displayed_Gallery_Queries extends Mixin
         $select = $id_only ? $image_key : $mapper->get_table_name() . '.*';
         $sort_direction = $this->object->order_direction;
         $sort_by = $this->object->order_by;
+        // Quickly sanitize
+        global $wpdb;
+        $this->object->container_ids = array_map(array($wpdb, '_escape'), $this->object->container_ids);
+        $this->object->entity_ids = array_map(array($wpdb, '_escape'), $this->object->entity_ids);
+        $this->object->exclusions = array_map(array($wpdb, '_escape'), $this->object->exclusions);
         // Here's what this method is doing:
         // 1) Determines what results need returned
         // 2) Determines from what container ids the results should come from
@@ -1681,7 +1686,7 @@ class Mixin_Displayed_Gallery_Renderer extends Mixin
         $settings = C_NextGen_Settings::get_instance();
         // Configure the arguments
         $defaults = array('id' => NULL, 'ids' => NULL, 'source' => '', 'src' => '', 'container_ids' => array(), 'gallery_ids' => array(), 'album_ids' => array(), 'tag_ids' => array(), 'display_type' => '', 'display' => '', 'exclusions' => array(), 'order_by' => $settings->galSort, 'order_direction' => $settings->galSortOrder, 'image_ids' => array(), 'entity_ids' => array(), 'tagcloud' => FALSE, 'returns' => 'included', 'slug' => NULL, 'sortorder' => array());
-        $args = shortcode_atts($defaults, $params);
+        $args = shortcode_atts($defaults, $params, 'ngg');
         // Are we loading a specific displayed gallery that's persisted?
         $mapper = C_Displayed_Gallery_Mapper::get_instance();
         if (!is_null($args['id'])) {

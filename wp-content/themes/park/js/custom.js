@@ -3,7 +3,7 @@ $(document).ready(function () {
         items: 1,
         dots: true,
 		loop: true,
-		autoplay: true,
+		/*autoplay: true,*/
 		autoplayTimeout: 4000,
 		animateIn: 'fadeIn',
 		animateOut: 'fadeOut'
@@ -83,11 +83,13 @@ $(document).ready(function () {
         touch: false
     });
     
-    var value_autoload = $('select[name="rooms"] :selected').val();
-    
-    var post_id_autoload = value_autoload.split('-');
-    
-    $('input[name="comment_post_ID"]').val(post_id_autoload[1]);
+    if ($('select[name="rooms"]').length) {
+        var value_autoload = $('select[name="rooms"] :selected').val();
+        
+        var post_id_autoload = value_autoload.split('-');
+        
+        $('input[name="comment_post_ID"]').val(post_id_autoload[1]);
+    }
     
     $('select[name="rooms"]').on('change', function () {
         var value = $('select[name="rooms"] :selected').val();

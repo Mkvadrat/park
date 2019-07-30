@@ -2,12 +2,12 @@
 /*
 Plugin Name: Contact Form 7 - Phone mask field
 Description: This plugin adds a new field in which you can set the phone number entry mask or other to Contact Form 7.
-Version: 1.2
+Version: 1.3
 Author: Ruslan Heorhiiev
 Text Domain: cf7-phone-mask-field
 Domain Path: /assets/languages/
 
-Copyright © 2018 Ruslan Heorhiiev
+Copyright © 2019 Ruslan Heorhiiev
 */
 
 if ( ! ABSPATH ) exit;
@@ -22,7 +22,11 @@ function wpcf7mf_init(){
     add_action( 'admin_enqueue_scripts', 'wpcf7mf_admin_enqueue_scripts' );
 	add_filter( 'wpcf7_validate_mask*', 'wpcf7mf_mask_validation_filter', 10, 2 );
 	
-	load_plugin_textdomain( 'cf7-phone-mask-field', false, dirname( plugin_dir_path( __FILE__ ) ) . '/assets/languages/' );
+	load_plugin_textdomain( 
+        'cf7-phone-mask-field', 
+        false, 
+        dirname( plugin_dir_path( __FILE__ ) ) . '/assets/languages/' 
+    );
 }
 add_action( 'plugins_loaded', 'wpcf7mf_init' , 20 );
 
@@ -32,7 +36,10 @@ add_action( 'plugins_loaded', 'wpcf7mf_init' , 20 );
  * @version 1.0 
 **/
 function wpcf7mf_enqueue_scripts() {
-    wp_enqueue_script( 'wpcf7mf-mask', plugin_dir_url( __FILE__ ) . 'assets/js/jquery.maskedinput.min.js', array('jquery'), '1.4', true );    
+    wp_enqueue_script( 
+        'wpcf7mf-mask', 
+        plugins_url( 'assets/js/jquery.maskedinput.min.js', __FILE__ ), array('jquery'), '1.3', true 
+    );    
 }
 
 /**
@@ -45,7 +52,10 @@ function wpcf7mf_admin_enqueue_scripts( $hook_suffix ) {
 		return;
 	}
     
- 	wp_enqueue_script( 'wpcf7mf-admin', plugin_dir_url( __FILE__ ) . 'assets/js/jquery.admin.main.js', array('jquery'), null, false );
+ 	wp_enqueue_script( 
+        'wpcf7mf-admin', 
+        plugins_url( 'assets/js/jquery.admin.main.js', __FILE__ ), array('jquery'), '1.3', false 
+    );
 }
 
 /**
@@ -54,79 +64,93 @@ function wpcf7mf_admin_enqueue_scripts( $hook_suffix ) {
  * @version 1.0
 **/
 function wpcf7mf_add_shortcode_mask() {
-    if ( ! function_exists('wpcf7_add_form_tag') ) return;    
+    if ( ! function_exists( 'wpcf7_add_form_tag' ) ) {
+        return;
+    }    
     
 	wpcf7_add_form_tag(
 		array( 'mask' , 'mask*' ),
-		'wpcf7mf_mask_shortcode_handler', true );
+		'wpcf7mf_mask_shortcode_handler', 
+        true 
+    );
 }
 
 /**
  * Функция добавления шорткодов с участием маски
  * Function add shortcodes with mask
- * @version 1.1
+ * @version 1.4
 **/
 function wpcf7mf_mask_shortcode_handler( $tag ) {
-    if ( ! class_exists( 'WPCF7_FormTag' ) ) return;
+    if ( ! class_exists( 'WPCF7_FormTag' ) ) {
+        return;
+    }
     
 	$tag = new WPCF7_FormTag( $tag );
 
-	if ( empty( $tag->name ) )
-		return '';
-
+	if ( empty( $tag->name ) ) {
+	   return '';
+	}
+		
 	$validation_error = wpcf7_get_validation_error( $tag->name );
 
 	$class = wpcf7_form_controls_class( $tag->type, 'wpcf7mf-mask' );
 
-
 	if ( $validation_error ) {
 	   $class .= ' wpcf7-not-valid';   
 	}
-
-	$atts = array();
-
-	$atts['size'] = $tag->get_size_option( '40' );
-	$atts['maxlength'] = $tag->get_maxlength_option();
-	$atts['minlength'] = $tag->get_minlength_option();
-
+    
+    // the attributes of the tag
+    $atts = array(
+		'type'          => 'text',
+        'name'          => $tag->name,        
+        'id'            => $tag->get_id_option(),
+        'class'         => $tag->get_class_option( $class ),
+        'size'          => $tag->get_size_option( '40' ),
+        'tabindex'      => $tag->get_option( 'tabindex', 'int', true ),
+        'maxlength'     => $tag->get_maxlength_option(),
+        'minlength'     => $tag->get_minlength_option(),
+        'aria-required' => (string)$tag->is_required(),
+        'aria-invalid'  => (string)$validation_error,          
+        'value'         => '',
+    ); 
+          
 	if ( $atts['maxlength'] && $atts['minlength'] && $atts['maxlength'] < $atts['minlength'] ) {
 		unset( $atts['maxlength'], $atts['minlength'] );
-	}
-
-	$atts['class'] = $tag->get_class_option( $class );
-	$atts['id'] = $tag->get_id_option();
-	$atts['tabindex'] = $tag->get_option( 'tabindex', 'int', true );
+	}                      
 
 	if ( $tag->has_option( 'readonly' ) ) {
         $atts['readonly'] = 'readonly';   
-	}		
-
-	if ( $tag->is_required() ) {
-        $atts['aria-required'] = 'true';
-	}		
-
-	$atts['aria-invalid'] = $validation_error ? 'true' : 'false';
+	}	
         
+    $definitions = '_*'; // the char list for mask definitions
+    $placeholder = '';
+    $mask        = '';    
     
-    foreach ( $tag->values as $val ) {			
-        if ( strrpos( $val, '_', 1 ) ) { // $val is mask ?
+    foreach ( $tag->values as $val ) {	                   
+        if ( strpbrk( $val, $definitions ) ) { // $val is mask ?
             $mask = $val;
+            continue;
         }
-            
-        $placeholder = $val;                     
+        
+        $placeholder = $val;
     }
     
-    $atts['placeholder'] = $placeholder;    
-    $atts['data-mask'] = $mask;    
-    $atts['name'] = $tag->name;    
-    $atts['value'] = '';                        	
-    $atts['type'] = 'text';	
+    // set tag type
+	if ( $tag->has_option( 'type' ) ) {
+        $atts['type'] = $tag->get_option( 'type', '[-0-9a-zA-Z]+', true );   
+	} elseif ( $mask && ! strrpos( $mask, '*', 1 ) ) { // $mask is numeric type?     
+        $atts['type'] = 'tel';        	   
+	}        
+    
+    $atts['placeholder'] = $placeholder ? $placeholder : $mask;	
+	$atts['data-mask']   = $mask;  
     
 	$atts = wpcf7_format_atts( $atts );
 
 	$html = sprintf(
 		'<span class="wpcf7-form-control-wrap %1$s"><input %2$s />%3$s</span>',
-		sanitize_html_class( $tag->name ), $atts, $validation_error );
+		sanitize_html_class( $tag->name ), $atts, $validation_error 
+    );
 
 	return $html;
 }
@@ -136,9 +160,10 @@ function wpcf7mf_mask_shortcode_handler( $tag ) {
  * Function check mask field
  * @version 1.0
 **/
-
 function wpcf7mf_mask_validation_filter( $result, $tag ) {
-    if ( ! class_exists( 'WPCF7_FormTag' ) ) return;
+    if ( ! class_exists( 'WPCF7_FormTag' ) ) {
+        return;
+    }
     
 	$tag = new WPCF7_FormTag( $tag );
 

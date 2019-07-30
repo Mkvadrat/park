@@ -1669,7 +1669,7 @@ div.wpcf7 {
 .tables{
 	border: 1px solid #DDA612;
 	border-radius: 10px;
-    width: 1040px;
+    /*width: 1040px;*/
 }
 table{
 	width: 100%;
@@ -1706,15 +1706,22 @@ table tbody tr td.price{
 table tbody tr td{
 	height: 50px;
 }
-table thead tr:nth-child(1) td{	
+/*table thead tr:nth-child(1) td{	
     width: calc((100% - 183px - 70px - 58px) / 4);
 }
 table thead tr:nth-child(1) td:nth-child(1),
 table thead tr:nth-child(1) td:nth-child(2){
 	width: 70px;
+}*/
+table thead tr td.fixed__td{
+	width: 65px;
 }
-table thead tr:nth-child(1) td:nth-child(3){
+
+/*table thead tr:nth-child(1) td:nth-child(3){
 	width: 58px;
+}*/
+table thead tr:first-child td:nth-child(1){
+	width: 16%;
 }
 .responsive__table{
 	max-width: 1100px;
@@ -1725,11 +1732,148 @@ table thead tr:nth-child(1) td:nth-child(3){
 .slider__text h3{
 	text-transform: none;
 }
+.m2kv{
+	padding-top: 20px;
+}
+.m2kv img{
+	width: 30px;
+}
+.soc__list{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 16px;
+}
+.soc__list a {
+	width: 16px;
+	margin: 0 5px;
+}
+.header__top .link__phone {
+    margin-bottom: 5px;
+}
+.sl-overlay{
+	    opacity: .9!important;
+		    background: #1e1e1e!important;
+}
+.sl-wrapper .sl-navigation button, .sl-wrapper .sl-close, .sl-wrapper .sl-counter {
+    color: #ccc!important;
+}
+
+
+.slider__room.main__slider{
+	padding: 0;
+}
+
+.main__slider .slider__text h3{
+	text-align: left;
+    line-height: 34px;
+    color: #fff;
+    border-radius: 10px 0 0 10px;
+    border-right: none;
+}
+.slider__room.main__slider .slider__description {
+    position: absolute;
+    z-index: 10;
+    top: auto;
+	bottom: 54px;
+    left: auto;
+	right: 0;
+    width: 536px;
+    justify-content: flex-end;
+}
+.slider__room.main__slider .slider__text {
+    justify-content: flex-end;
+    margin: 0 0 17px auto;
+    background: rgba(0, 0, 0, .5);
+    border-radius: 13px 0 0 13px;
+    padding-right: 0;
+}
+.slider__room.main__slider .slider__text .btn{
+	position: relative;
+	width: 26px;
+	height: 30px;
+    padding: 0;
+    margin-left: 15px;
+    font-size: 0;
+}
+.slider__room.main__slider .slider__text .btn::after{
+	content: '\f105';
+	font-family: 'FontAwesome';
+	position: absolute;
+    top: 0;
+    left: 8px;
+    font-size: 26px;
+}
+.slider__room.main__slider .bg__slider{
+	border-radius: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /**/
 
 
+@media (max-width: 1260px) {
+	.slider__room.main__slider .slider__description {
+		bottom: 110px;
+	}	
+}
+@media (max-width: 1230px) {
+	table thead tr td.fixed__td{
+		width: 45px;
+	}
+}
+@media (max-width: 768px) {
+	table td{
+		font-size: 12px;
+	}
+	table thead td {
+		height: 25px;
+	}
+	table thead tr:nth-child(3) td{
+		height: 35px;
+	}
+}
+@media (max-width: 560px) {
+	table td{
+		font-size: 10px;
+		line-height: 12px;
+	}
+	table thead tr td.fixed__td{
+		width: 25px;
+	}
+	table tbody tr td {
+		height: 40px;
+	}
+	table thead tr:nth-child(3) td{
+		height: 25px;
+	}
+}
+@media (max-width: 320px) {
+	table td {
+		font-size: 8px;
+		line-height: 10px;
+	}
+	table thead tr:nth-child(2) td, table thead tr:nth-child(3) td, table thead td {
+		height: 15px;
+	}
+}
 @media (max-width: 1170px) {
     .booking__form form .fields__group {
         flex-wrap: wrap;
@@ -2014,9 +2158,9 @@ table thead tr:nth-child(1) td:nth-child(3){
 	 .slider__room .slider__description {
         left: 0;
         width: 100%;
-        padding: 0 20px;
+        /*padding: 0 20px;
 		position: relative;
-		top: 0;
+		top: 0;*/
     }
 
     .slider__text h3,
@@ -2029,6 +2173,23 @@ table thead tr:nth-child(1) td:nth-child(3){
     .slider__description {
         padding: 0 40px;
     }
+	.slider__room.main__slider .slider__description{
+		padding: 0;
+	}
+	.slider__room.main__slider .slider__description {
+		width: calc(100% - 24px);
+	}
+	.main__slider .slider__text h3 {
+		line-height: 30px;
+		font-size: 20px;
+		padding: 9px 10px;
+	}
+	.slider__room.main__slider .slider__description {
+		bottom: 40px;
+	}
+	.slider.main__slider .owl-dots {
+		bottom: 18px;
+	}
 }
 
 @media (max-width: 600px) {
@@ -2069,11 +2230,11 @@ table thead tr:nth-child(1) td:nth-child(3){
     }
 
     .slider__room .slider__description {
-        left: 0;
+        /*left: 0;
         width: 100%;
         padding: 0 20px;
 		position: relative;
-		top: 0;
+		top: 0;*/
     }
 	
 	.slider .owl-dots {

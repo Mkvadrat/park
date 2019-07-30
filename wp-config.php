@@ -63,7 +63,7 @@ define( 'NONCE_SALT',       'H/T&3rU?zLtj# +{C?{/Ck,c?^54_YnGk]V%<jtuu$#KWuwS5z}
  * Можно установить несколько сайтов в одну базу данных, если использовать
  * разные префиксы. Пожалуйста, указывайте только цифры, буквы и знак подчеркивания.
  */
-$table_prefix = 'wp_';
+$table_prefix = 'kxxsk_';
 
 /**
  * Для разработчиков: Режим отладки WordPress.
@@ -87,3 +87,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Инициализирует переменные WordPress и подключает файлы. */
 require_once( ABSPATH . 'wp-settings.php' );
+//Disable File Edits
+define('DISALLOW_FILE_EDIT', true);

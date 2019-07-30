@@ -153,7 +153,7 @@ get_header();
 					<?php foreach($rooms_list as $room){ ?>
 					<?php
 						$image_url = wp_get_attachment_image_src( get_post_thumbnail_id($room->ID), 'full');
-						$price = get_post_meta( get_the_ID(), 'price_room_single_rooms_page', $single = true );		
+						$price = get_post_meta( $room->ID, 'price_room_single_rooms_page', $single = true );		
 					?>
                     <a href="<?php echo get_permalink($room->ID); ?>" class="room__item">
                         <div class="room__item-inner">

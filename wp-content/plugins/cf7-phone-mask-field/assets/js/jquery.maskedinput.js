@@ -185,15 +185,16 @@
     $(document).ready(function(){
         // contact form 7 mask field
         var $mask_fields = $('.wpcf7-mask');
-        if ( $mask_fields.length > 0 ) {
+        
+        if ( $mask_fields.length ) {
             $mask_fields.each(function(){
                 var $this = $(this), data_mask = $this.data('mask');
                 
                 $this.mask( data_mask );
                 
-                if ( data_mask.indexOf('*') == -1 && data_mask.indexOf('a') == -1 ) {
+                if ( 'tel' != $this.attr('type') && -1 == data_mask.indexOf('*') && -1 == data_mask.indexOf('a') ) {
                     $this.attr({
-                        'inputmode': 'numeric'
+                        'inputmode': 'numeric',
                     });
                 }                
                 

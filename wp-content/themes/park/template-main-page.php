@@ -8,7 +8,7 @@ get_header();
     
     <div id="content" class="main">
         <div class="wrapper">
-            <div class="slider slider__room">
+            <div class="slider slider__room main__slider">
                 <div class="owl-carousel">
                     <?php
                         global $nggdb;
@@ -19,8 +19,7 @@ get_header();
                         ?>
                             <div class="bg__slider" style="background-image: url('<?php echo nextgen_esc_url($image->imageURL); ?>')">
                                 <div class="slider__description">
-                                    <div class="slider__text"><h3><?php echo $image->alttext; ?></h3></div>
-                                    <?php echo htmlspecialchars_decode($image->description, ENT_QUOTES); ?>
+                                    <div class="slider__text"><h3><?php echo $image->alttext; ?><?php echo htmlspecialchars_decode($image->description, ENT_QUOTES); ?></h3></div>                                    
                                 </div>
                             </div>
                         <?php
@@ -235,6 +234,13 @@ get_header();
                 <?php echo get_post_meta( get_the_ID(), 'text_k_block_main_page', $single = true ); ?>
             </div>
             <?php echo get_post_meta( get_the_ID(), 'maps_main_page', $single = true ); ?>
+        </div>
+        
+        <div class="section__map">
+            <?php
+                if ( function_exists('dynamic_sidebar') )
+                    dynamic_sidebar('sharing-page');
+            ?>
         </div>
 
     </div>
